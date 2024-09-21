@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        #chat {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 4px;
+            background: #ddcece8c;
+        }
+        #message-form {
+            display: flex;
+        }
+        #message-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #message-form button {
+            padding: 10px;
+            border: none;
+            background: #dd890a;
+            color: #fff;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        #message-form button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat">
+        <h1>Chat Application</h1><h6>__Abhinav Aryan...</h6>
+        <div id="messages"></div>
+        <form id="message-form">
+            <input id="message-input" autocomplete="off" placeholder="Type your message here..." />
+            <button>Send</button>
+        </form>
+    </div>
+    <script>
+        const socket = io();
+
+        const messages = document.getElementById('messages');
+        const form = document.getElementById('message-form');
+        const input = document.getElementById('message-input');
+
+        socket.on('message', function(message) {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messages.appendChild(messageElement);
+            messages.scrollTop = messages.scrollHeight;
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const message = input.value;
+            if (message) {
+                socket.send(message);
+                input.value = '';
+            }
+        });
+
+        // Example of joining a room or private messaging
+        //socket.emit('join', 'username');
+        // socket.emit('private_message', { recipient: 'username', message: 'Hello!' });
+    </script>
+</body>
+</html>

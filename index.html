@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Web Developer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Abhinav Aryan</h1>
+            <p>Web Developer</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>Hello! I'm Abhinav, a biggener web developer with basics in creating dynamic and responsive websites, apps and games.</p>
+    </section>
+
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>PHP</li>
+            <li>Godot</li>
+            <li>AI</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <a href="Ecomerce\index.html">
+        <div class="project-card">
+            <h3>eCommerce</h3>
+            <p>Responsive eCommerce website built using HTML, CSS, and JavaScript.</p>
+        </div>
+        </a>
+        <a href="School Site\index.html">
+        <div class="project-card">
+           <h3>School Site</h3>
+            <p>School website built using HTML, JavaScript and CSS animations.</p>
+        </div>
+        </a>
+        <a href="Chat Application\templates\index.html">
+        <div class="project-card">
+            <h3>Real Time Chat</h3>
+            <p>Chating website built using Python{Flask}, Html, JavaScript and CSS animations.</p>
+        </div>
+        </a>
+        <a href="Social Media\index.html">
+        <div class="project-card">
+            <h3>Social Media</h3>
+            <p>A Social Media site built using Python and HTML.</p>
+        </div>
+        </a>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="save_message.php" method="post">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 @Samir Roy. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+</html>
+
+
+
